@@ -1,0 +1,85 @@
+[
+  {
+    "principal": "burrow",
+    "resources": {
+      "topics": [
+        {
+          "prefixes": [
+            "vault.",
+            "scheduler.",
+            "ep.",
+            "integration."
+          ],
+          "permissions": [
+            "Describe",
+            "Read",
+            "Write"
+          ]
+        },
+        {
+          "names": [
+            "__consumer_offsets"
+          ],
+          "permissions": [
+            "Describe",
+            "Read"
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "prefixes": [
+            "vault",
+            "scheduler",
+            "ep",
+            "switchboard",
+            "watermark-processor",
+            "smart-contracts",
+            "payments.hub",
+            "CreditTransferServiceSchemeEvent"
+          ],
+          "permissions": [
+            "Describe",
+            "Read"
+          ]
+        },
+        {
+          "names": [
+            "burrow-vault"
+          ],
+          "permissions": [
+            "Describe",
+            "Read"
+          ]
+        }
+      ]
+    },
+    "authentication_methods": {
+      "mtls": {
+        "common_name": "burrow",
+        "kv_secret_path": "burrow/kafka",
+        "kv_secret_keys": [
+          "cachain.pem",
+          "client_chain.pem",
+          "client_key.pem"
+        ]
+      },
+      "sasl_scram": {
+        "username": "burrow",
+        "kv_secret_path": "burrow/kafka",
+        "kv_secret_keys": [
+          "sasl_scram_username",
+          "sasl_scram_password"
+        ]
+      },
+      "sasl_oauth": {
+        "client_id": "burrow",
+        "kv_secret_path": "burrow/kafka",
+        "kv_secret_keys": [
+          "oauth_client_id",
+          "oauth_client_secret"
+        ]
+      }
+    }
+  }
+]
